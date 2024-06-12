@@ -25,7 +25,9 @@ model {
 
 generated quantities {
     array[N] real yields_pred;
+    array[N] real log_lik;
     for (i in 1:N) {
+        log_lik[i] = normal_lpdf(yields[i] | a - b*pow(average_temperature_may[i], 2) + c*precipitation_june[i] - d*pow(precipitation_june[i], 2), 1);
         yields_pred[i] = normal_rng(a - b*pow(average_temperature_may[i], 2) + c*precipitation_june[i] - d*pow(precipitation_june[i], 2), 1);
     }
 }

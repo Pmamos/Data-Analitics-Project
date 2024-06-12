@@ -49,8 +49,9 @@ model {
 
 generated quantities {
     array[N] real yields_pred;
+    array[N] real log_lik;
     for (i in 1:N) {
-         yields_pred[i] = a 
+        log_lik[i] = normal_lpdf(yields[i] | a 
             - b[1] * pow(average_temperature_april[i], 2)
             - b[2] * pow(average_temperature_may[i], 2)
             - b[3] * pow(average_temperature_june[i], 2)
@@ -62,6 +63,20 @@ generated quantities {
             - d[1] * pow(precipitation_april[i], 2)
             - d[2] * pow(precipitation_may[i], 2)
             - d[3] * pow(precipitation_june[i], 2)
-            - d[4] * pow(precipitation_july[i], 2);
+            - d[4] * pow(precipitation_july[i], 2), 1);
+
+        yields_pred[i] = normal_rng(a 
+            - b[1] * pow(average_temperature_april[i], 2)
+            - b[2] * pow(average_temperature_may[i], 2)
+            - b[3] * pow(average_temperature_june[i], 2)
+            - b[4] * pow(average_temperature_july[i], 2)
+            + c[1] * precipitation_april[i]
+            + c[2] * precipitation_may[i]
+            + c[3] * precipitation_june[i]
+            + c[4] * precipitation_july[i]
+            - d[1] * pow(precipitation_april[i], 2)
+            - d[2] * pow(precipitation_may[i], 2)
+            - d[3] * pow(precipitation_june[i], 2)
+            - d[4] * pow(precipitation_july[i], 2),1);
     }
 }
