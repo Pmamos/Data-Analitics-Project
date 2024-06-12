@@ -26,6 +26,6 @@ model {
 generated quantities {
     array[N] real yields_pred;
     for (i in 1:N) {
-        yields_pred[i] = a - b*pow(average_temperature_may[i], 2) + c*precipitation_june[i] - d*pow(precipitation_june[i], 2);
+        yields_pred[i] = normal_rng(a - b*pow(average_temperature_may[i], 2) + c*precipitation_june[i] - d*pow(precipitation_june[i], 2), 1);
     }
 }
