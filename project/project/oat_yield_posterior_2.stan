@@ -20,11 +20,11 @@ parameters {
 }
 
 model {
-    a ~ normal(35, 17.5);
+    a ~ normal(24.43, 10.43);
     for (m in 1:4) {
-        b[m] ~ normal(0.109, 0.109);
-        c[m] ~ normal(0.764, 0.764);
-        d[m] ~ normal(0.00433, 0.00433);
+        b[m] ~ normal(0.109, 0.209);
+        c[m] ~ normal(0.764, 1.464);
+        d[m] ~ normal(0.00433, 0.00833);
     }
 
    for (i in 1:N) {
