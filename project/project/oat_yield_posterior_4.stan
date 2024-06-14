@@ -23,7 +23,7 @@ model {
     a ~ normal(24.43, 10.43);
     for (m in 1:4) {
         b[m] ~ normal(0.0309, 0.0509);
-        c[m] ~ normal(1.764, 2.464);
+        c[m] ~ normal(0.764, 0.564);
         d[m] ~ normal(0.00433, 0.000833);
     }
 

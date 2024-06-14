@@ -19,7 +19,7 @@ generated quantities {
     // Generowanie parametrów dla każdego miesiąca
     for (m in 1:4) {
         b[m] = normal_rng(0.0309, 0.0509);
-        c[m] = normal_rng(1.764, 2.464);
+        c[m] = normal_rng(0.764, 0.564);
         d[m] = normal_rng(0.00433, 0.000833);
     }
 

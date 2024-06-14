@@ -15,7 +15,7 @@ parameters {
 model {
     a ~ normal(24.43, 20);
     b ~ normal(0.109, 0.0509);
-    c ~ normal(5.764, 2.764);
+    c ~ normal(3.764, 2.064);
     d ~ normal(0.0433, 0.00833);
 
     for (i in 1:N) {
