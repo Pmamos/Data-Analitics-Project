@@ -5,10 +5,10 @@ data {
 }
 
 generated quantities {
-    real a = normal_rng(24.43, 20);
-    real b = normal_rng(0.109, 0.0509);
-    real c = normal_rng(0.764, 0.3764);
-    real d = normal_rng(0.00433, 0.000833);
+    real a = normal_rng(16, 8);
+    real b = normal_rng(0.109, 0.0545);
+    real c = normal_rng(0.764, 0.382);
+    real d = normal_rng(0.00433, 0.002165);
 
     array[N] real yields;
     for (i in 1:N) {
